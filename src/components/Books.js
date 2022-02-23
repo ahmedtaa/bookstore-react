@@ -1,10 +1,11 @@
 import './books.css';
 
 import React from 'react';
+import Booklist from './BookList';
 
 const Books = () => (
   <div className="books-container">
-    <h2>Books</h2>
+    <Booklist />
   </div>
 );
 

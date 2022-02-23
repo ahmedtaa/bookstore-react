@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Cat from './components/Categories';
+import Categories from './components/Categories';
 import Header from './components/Header';
 import Books from './components/Books';
 
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<Books />} />
-        <Route path="/cat" exact element={<Cat />} />
+        <Route path="/cat" exact element={<Categories />} />
       </Routes>
     </div>
   );
