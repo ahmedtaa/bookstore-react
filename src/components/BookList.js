@@ -22,7 +22,7 @@ const Booklist = () => {
         id: uuidv4(),
         bookTitle: bTitle.current.value,
         autherName: bAuther.current.value,
-      })
+      }),
     );
     bTitle.current.value = '';
     bAuther.current.value = '';
