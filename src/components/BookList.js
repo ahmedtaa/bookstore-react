@@ -1,26 +1,39 @@
 import './booklist.css';
-import React, { useState, useEffect } from 'react';
-import Book from './Book';
+
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import Books from './Books';
 import Form from './Form';
+import ErrorBoundary from '../utils/ErrorBoundary';
+import { addBook } from '../redux/books/books';
 
 const Booklist = () => {
-  const [books, setBooks] = useState([]);
-  useEffect(() => {
-    const bb = [
-      { id: 1, bookTitle: 'helloWorld', autherName: 'ahmed' },
-      { id: 2, bookTitle: 'helloWorld2', autherName: 'ahmed2' },
-      { id: 3, bookTitle: 'helloWorld3', autherName: 'ahmed3' },
-    ];
+  const bTitle = useRef();
+  const bAuther = useRef();
+  // const bookId = useRef();
+  const dispatch = useDispatch();
 
-    setBooks(bb);
-  }, []);
+  const handleAddBook = (e) => {
+    e.preventDefault();
+
+    dispatch(
+      addBook({
+        id: uuidv4(),
+        bookTitle: bTitle.current.value,
+        autherName: bAuther.current.value,
+      })
+    );
+    bTitle.current.value = '';
+    bAuther.current.value = '';
+  };
 
   return (
-    <div className="books-container">
-      {books.map((b) => (
-        <Book key={b.id} title={b.bookTitle} name={b.autherName} />
-      ))}
-      <Form />
+    <div className="booklist-container">
+      <ErrorBoundary>
+        <Books />
+        <Form title={bTitle} auther={bAuther} addBook={handleAddBook} />
+      </ErrorBoundary>
     </div>
   );
 };

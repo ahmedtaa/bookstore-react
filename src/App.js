@@ -2,16 +2,20 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Categories from './components/Categories';
 import Header from './components/Header';
-import Books from './components/Books';
+import BookList from './components/BookList';
+import ErrorBoundary from './utils/ErrorBoundary';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/" exact element={<Books />} />
-        <Route path="/cat" exact element={<Categories />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" exact element={<BookList />} />
+
+          <Route path="/cat" exact element={<Categories />} />
+        </Routes>
+      </ErrorBoundary>
     </div>
   );
 }
