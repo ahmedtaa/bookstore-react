@@ -9,8 +9,8 @@ import ErrorBoundary from '../utils/ErrorBoundary';
 import { addBook } from '../redux/books/books';
 
 const Booklist = () => {
-  const bTitle = useRef();
-  const bAuther = useRef();
+  const title = useRef();
+  const category = useRef();
   // const bookId = useRef();
   const dispatch = useDispatch();
 
@@ -19,20 +19,20 @@ const Booklist = () => {
 
     dispatch(
       addBook({
-        id: uuidv4(),
-        bookTitle: bTitle.current.value,
-        autherName: bAuther.current.value,
+        item_id: uuidv4(),
+        title: title.current.value,
+        category: category.current.value,
       }),
     );
-    bTitle.current.value = '';
-    bAuther.current.value = '';
+    title.current.value = '';
+    category.current.value = '';
   };
 
   return (
     <div className="booklist-container">
       <ErrorBoundary>
         <Books />
-        <Form title={bTitle} auther={bAuther} addBook={handleAddBook} />
+        <Form title={title} category={category} addBook={handleAddBook} />
       </ErrorBoundary>
     </div>
   );
