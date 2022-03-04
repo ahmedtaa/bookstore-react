@@ -35,6 +35,7 @@
 }
 
 .form button {
+  /* stylelint-disable-next-line csstree/validator */
   width: min(100%, 350px);
 }
 

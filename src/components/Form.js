@@ -28,7 +28,7 @@ const Form = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(book),
-      }
+      },
     );
 
     dispatch(addBook(book));
