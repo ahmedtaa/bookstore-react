@@ -11,7 +11,7 @@ import { addBook } from '../redux/books/books';
 const Booklist = () => {
   const title = useRef();
   const category = useRef();
-  // const bookId = useRef();
+
   const dispatch = useDispatch();
 
   const handleAddBook = (e) => {
@@ -22,6 +22,7 @@ const Booklist = () => {
       title: title.current.value,
       category: category.current.value,
     };
+
     fetch(
       'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/hU7hRqGMmMkUTHelAE4I/books',
       {

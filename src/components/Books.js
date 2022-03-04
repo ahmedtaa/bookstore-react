@@ -10,7 +10,6 @@ const Books = () => {
   return (
     <div className="books-container">
       {books.map((b) => (
-        // eslint-disable-next-line react/jsx-key
         <Book
           key={b.item_id}
           id={b.item_id}
