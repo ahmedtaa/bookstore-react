@@ -1,11 +1,18 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Categories from './components/Categories';
 import Header from './components/Header';
 import BookList from './components/BookList';
 import ErrorBoundary from './utils/ErrorBoundary';
+import { fetchData } from './redux/books/books';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
   return (
     <div className="App">
       <Header />
@@ -18,6 +25,6 @@ function App() {
       </ErrorBoundary>
     </div>
   );
-}
+};
 
 export default App;

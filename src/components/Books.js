@@ -2,6 +2,7 @@ import './books.css';
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import Book from './Book';
 
 const Books = () => {
@@ -9,8 +10,12 @@ const Books = () => {
   return (
     <div className="books-container">
       {books.map((b) => (
-        // eslint-disable-next-line react/jsx-key
-        <Book id={b.id} title={b.bookTitle} name={b.autherName} />
+        <Book
+          key={b.item_id}
+          id={b.item_id}
+          title={b.title}
+          name={b.category}
+        />
       ))}
     </div>
   );

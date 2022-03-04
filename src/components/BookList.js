@@ -9,30 +9,41 @@ import ErrorBoundary from '../utils/ErrorBoundary';
 import { addBook } from '../redux/books/books';
 
 const Booklist = () => {
-  const bTitle = useRef();
-  const bAuther = useRef();
-  // const bookId = useRef();
+  const title = useRef();
+  const category = useRef();
+
   const dispatch = useDispatch();
 
   const handleAddBook = (e) => {
     e.preventDefault();
 
-    dispatch(
-      addBook({
-        id: uuidv4(),
-        bookTitle: bTitle.current.value,
-        autherName: bAuther.current.value,
-      }),
+    const book = {
+      item_id: uuidv4(),
+      title: title.current.value,
+      category: category.current.value,
+    };
+
+    fetch(
+      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/hU7hRqGMmMkUTHelAE4I/books',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(book),
+      },
     );
-    bTitle.current.value = '';
-    bAuther.current.value = '';
+
+    dispatch(addBook(book));
+    title.current.value = '';
+    category.current.value = '';
   };
 
   return (
     <div className="booklist-container">
       <ErrorBoundary>
         <Books />
-        <Form title={bTitle} auther={bAuther} addBook={handleAddBook} />
+        <Form title={title} category={category} addBook={handleAddBook} />
       </ErrorBoundary>
     </div>
   );
