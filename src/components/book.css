@@ -10,6 +10,10 @@
   font-size: 0.875rem;
 }
 
+.card .details {
+  flex-grow: 2;
+}
+
 .card span {
   color: var(--darkgray-color);
 }
@@ -54,6 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .card .svg {
@@ -114,6 +119,7 @@
   }
 
   .card .chapter {
+    flex-grow: 1;
     padding: 1rem 0 0 0;
     border: none;
     align-items: center;

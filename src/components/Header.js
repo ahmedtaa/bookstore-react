@@ -1,6 +1,7 @@
 import './header.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import profileIcon from '../profileIcon.png';
 
 const Header = () => (
   <nav className="navbar">
@@ -19,6 +20,7 @@ const Header = () => (
         </Link>
       </li>
     </ul>
+    <img className="profileicon" alt="profile" src={profileIcon} />
   </nav>
 );
 
