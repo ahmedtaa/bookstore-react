@@ -1,1 +1,5 @@
 /* stylelint-disable-next-line no-empty-source */
+.booklist-container {
+  padding: 0 100px;
+  margin-top: 20px;
+}

@@ -14,7 +14,7 @@ const Books = () => {
           key={b.item_id}
           id={b.item_id}
           title={b.title}
-          name={b.category}
+          category={b.category}
         />
       ))}
     </div>

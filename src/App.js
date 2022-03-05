@@ -20,7 +20,7 @@ const App = () => {
         <Routes>
           <Route path="/" exact element={<BookList />} />
 
-          <Route path="/cat" exact element={<Categories />} />
+          <Route path="/categories" exact element={<Categories />} />
         </Routes>
       </ErrorBoundary>
     </div>

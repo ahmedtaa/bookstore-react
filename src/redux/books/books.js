@@ -2,7 +2,6 @@
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
-const LOAD_BOOKS = 'bookStore/books/LOAD_BOOKS';
 
 // Actions
 export const addBook = (payload) => ({
@@ -41,9 +40,6 @@ const reducer = (state = initialState, action) => {
 
     case REMOVE_BOOK:
       return state.filter((book) => book.item_id !== action.payload);
-
-    case LOAD_BOOKS:
-      return [...state, action.payload];
 
     default:
       return state;
